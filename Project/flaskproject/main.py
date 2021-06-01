@@ -1,26 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
-# app = Flask(__name__) 
+app = Flask(__name__) 
 
-# @app.route("/")  # @ --> route --> decorator
-# def index():  
-#    pass  
+@app.route("/")  # @ --> route --> decorator
+def index():  
+    return render_template("index.html")
 
+app.run(host="localhost", debug=True)
 
-def deco(*args):
-    print(args)
-    def deco1(func):
-        def func1(*mul):
-            result = func(*mul)
-            print(result)
-        return func1 
-    return deco1
-
-#@deco("hello")
-def add(a, b):
-    return a+b
-
-#add(10, 20)
-d = deco("hello")
-f = d(add)
-f(10, 20)
