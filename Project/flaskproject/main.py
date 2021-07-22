@@ -57,8 +57,8 @@ def filter_data(skills, exp, title, loc, sal):
         temp = temp[temp['Key Skills'].apply(lambda x:True if skills.lower() in str(x).lower() else False)]
     if len(exp)!=0:
         temp = temp[temp['Job Experience Required'].apply(lambda x:expfilter(str(x), int(exp)))]
-    if sal:
-        temp = temp[temp['Job Salary'].apply(lambda x: salfilter(str(x),int(sal)))]
+    # if sal:
+        # temp = temp[temp['Job Salary'].apply(lambda x: salfilter(str(x),int(sal)))]
     if title:
         temp = temp[temp['Job Title'].apply(lambda x:True if title.lower() in str(x).lower() else False)]
     return temp.to_html()
